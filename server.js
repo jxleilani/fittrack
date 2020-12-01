@@ -25,6 +25,10 @@ app.get('/exercise', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'exercise.html'));
 });
 
+app.get('/stats', (req, res) => {
+   res.sendFile(path.join(__dirname, 'public', 'stats.html'));
+});
+
 //API Routes
 app.get('/api/workouts', (req, res) => {
   db.Workout.find({})
@@ -51,6 +55,16 @@ app.put('/api/workouts/:id', (req, res) => {
     { $push: {exercises: req.body}},
     { new: true }
   )
+  .then(dbWorkout => {
+    res.json(dbWorkout);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  });
+});
+
+app.get('/api/workouts/range', (req,res) => { 
+  db.Workout.find({})
   .then(dbWorkout => {
     res.json(dbWorkout);
   })
