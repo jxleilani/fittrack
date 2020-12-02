@@ -1,4 +1,4 @@
-# Fit Track
+# Fit Track 
 Stay on track with your fitness goals with this full-stack fitness app!
 
 **Heroku Deployment:** https://mysterious-castle-72779.herokuapp.com/
@@ -21,6 +21,9 @@ Express.js
 Mongoose  
 Heroku  
 MongoAtlas
+
+## License
+![MIT license badge](https://img.shields.io/badge/license-MIT-green)
 
 ## About
 Created for Boot Camp course work.  
