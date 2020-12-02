@@ -32,7 +32,9 @@ app.get('/stats', (req, res) => {
 //API Routes
 app.get('/api/workouts', (req, res) => {
   db.Workout.find({})
-  .then(dbWorkout => res.json(dbWorkout))
+  .then(dbWorkout => {
+    res.json(dbWorkout);
+  })
   .catch(err => {
     res.status(400).json(err);
   });
@@ -41,8 +43,7 @@ app.get('/api/workouts', (req, res) => {
 app.post('/api/workouts', (req, res) => {
   db.Workout.create(req.body)
   .then(dbWorkout => {
-    console.log(dbWorkout);
-    res.json(dbWorkout)
+    res.json(dbWorkout);
   })
   .catch(err => {
     res.status(400).json(err);
